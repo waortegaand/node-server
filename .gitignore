@@ -1,0 +1,17 @@
+# directories
+node_modules
+.vscode/*
+
+# environment files
+*.env
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
