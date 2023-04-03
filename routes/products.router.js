@@ -5,15 +5,24 @@ const ProductsService = require('./../services/product.service')
 const router = express.Router();
 const service = new ProductsService();
 
-router.get("/",async (req,res)=>{
-    const productos = await service.find();
-    res.json(productos);
+router.get("/",async (req,res, next)=>{
+    try{
+        const productos = await service.find();
+        res.json(productos);
+    }catch(error){
+        next(error);
+    }
+    
 })
 
-router.get("/:id", async (req,res)=>{
-    const {id} = req.params;
-    const producto = await service.findOne(id);
-    res.json(producto);
+router.get("/:id", async (req,res,next)=>{
+    try{
+        const {id} = req.params;
+        const producto = await service.findOne(id);
+        res.json(producto);
+    }catch(error){
+        next(error);
+    }
 })
 
 router.post('/', async (req,res)=>{
